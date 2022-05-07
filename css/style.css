@@ -1,42 +1,46 @@
-/* Typography */
+/* Variables */
+element {
+    --black-color: #1E1E1E
+    --grey-color: #9B9B9B
+    --pink-color: #FFE3E3
+}
 
+/* Typography */
 h1 {
-    color: #1E1E1E;
+    color: var(--black-color);
     font-family: 'Montserrat', sans-serif;
     font-size: 46px;
     line-height: 1.2;
-}
+}    
 
 h2 {
-    color: #1E1E1E;
+    color: var(--black-color);
     font-family: 'Montserrat', sans-serif;
     font-size: 34px;
     line-height: 1.2;
-}
+}    
 
 h3 {
-    color: #1E1E1E;
+    color: var(--black-color);
     font-family: 'Montserrat', sans-serif;
     font-size: 28px;
     line-height: 1.2;
-}
+}    
 
 p {
-    color: #1E1E1E;
+    color: var(--black-color);
     font-family: 'Cardo', sans-serif;
     font-size: 14px;
     line-height: 1.4;
     margin-bottom: 30px;
-}
+}    
  
 .footer__text {
-    color: #1E1E1E;
+    color: var(--black-color);
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     font-size: 28px;
     line-height: 1.2;
-}
-
-/* Typography */
+}    
 
 
