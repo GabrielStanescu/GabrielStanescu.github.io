@@ -124,3 +124,20 @@ p {
     font-weight: bold;
     color: var(--black-color);
 }
+
+/* article buttons */
+.actions__container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.actions__btn {
+    color: var(--black-color);
+    font-family:'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
