@@ -43,7 +43,13 @@ p {
     line-height: 1.2;
 }    
 
-/*  */
+/* Container */
+.container {
+    width: 1280px;
+    margin: 0;
+}
+
+/* Navigation */
 .nav {
     display: flex;
     margin-top: 100px;
