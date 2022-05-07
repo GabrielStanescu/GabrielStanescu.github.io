@@ -1,5 +1,5 @@
 /* Variables */
-element {
+:root {
     --black-color: #1E1E1E
     --grey-color: #9B9B9B
     --pink-color: #FFE3E3
@@ -71,4 +71,25 @@ p {
 .nav__link {
     color: var(--black-color);
     text-decoration: none;
+}
+
+/* Button */
+.add__container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 130px;
+    margin-bottom: 90px;
+}
+
+.button {
+    color: var(--black-color);
+    font-family:'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.3;
+    width: 300px;
+    height: 60px;
+    border: 1px solid var(--grey-color);
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 50px;
 }
