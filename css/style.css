@@ -43,4 +43,26 @@ p {
     line-height: 1.2;
 }    
 
+/*  */
+.nav {
+    display: flex;
+    margin-top: 100px;
+    justify-content: flex-end;
+}
 
+.nav__container {
+    display: flex;
+    list-style-type: none;
+}
+
+.nav__item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-left: 100px;
+}
+
+.nav__link {
+    color: var(--black-color);
+    text-decoration: none;
+}
