@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Travelling blog page</title>
 	<link href="https://fonts.googleapis.com/css?family=Cardo" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -30,7 +30,7 @@
 			</ul>
 		</nav>
 		<div class="add__container">
-			<button type="button" class="add__button"> + Add Article</button>
+			<button type="button" class="add__button" id="add_article"> + Add Article</button>
 		</div>
 		<main>
 			<article>
@@ -46,6 +46,7 @@
 				</ul>
 				<div class="modify__container">
 					<button type="button" class="modify__button">Edit</button>
+					
 					<button type="button" class="modify__button">Delete</button>
 				</div>
 				<img src="assets/bike.jpg" alt="Bike">
@@ -235,6 +236,25 @@
 			<a class="footer__text">next</a>
 		</footer>
 	</div>
+	<div class="modal">
+		<div class="modal__content">
+			<h1 class="modal__text">Add/Edit Article</h1>
+			<div class="modal__input">
+				<input class="modal__form" id="i1" placeholder="Please enter title">
+				<input class="modal__form" id="i2" placeholder="Please enter ">
+				<input class="modal__form" id="i3" placeholder="Please enter author">
+				<input class="modal__form" id="i4" placeholder="Please enter date">
+				<input class="modal__form" id="i5" placeholder="Please enter image url">
+				<input class="modal__form" id="i6" placeholder="Please enter content">
+			</div>
+			<div class="modal__buttons">
+				<button class="add__button exit__button">Cancel</button>
+				<button class="add__button exit__button" id="save">Save</button>
+			</div>
+		</div>
+	</div>
+	
+	<script src="script/script.js"></script>
 </body>
 
 </html>
