@@ -45,7 +45,7 @@
 					<li class="info__item">July 01, 2018</li>
 				</ul>
 				<div class="modify__container">
-					<button type="button" class="modify__button">Edit</button>
+					<button type="button" class="modify__button" id="edit_article">Edit</button>
 					
 					<button type="button" class="modify__button">Delete</button>
 				</div>
@@ -86,7 +86,7 @@
 					<li class="info__item">June 30, 2018</li>
 				</ul>
 				<div class="modify__container">
-					<button type="button" class="modify__button">Edit</button>
+					<button type="button" class="modify__button" id="edit_article">Edit</button>
 					<button type="button" class="modify__button">Delete</button>
 				</div>
 				<img src="assets/bucegi.jpg" alt="Bucegi">
@@ -126,7 +126,7 @@
 					<li class="info__item">June 17, 2018</li>
 				</ul>
 				<div class="modify__container">
-					<button type="button" class="modify__button">Edit</button>
+					<button type="button" class="modify__button" id="edit_article">Edit</button>
 					<button type="button" class="modify__button">Delete</button>
 				</div>
 				<img src="assets/village.jpg" alt="Village">
@@ -164,7 +164,7 @@
 					<li class="info__item">December 29, 2017</li>
 				</ul>
 				<div class="modify__container">
-					<button type="button" class="modify__button">Edit</button>
+					<button type="button" class="modify__button" id="edit_article">Edit</button>
 					<button type="button" class="modify__button">Delete</button>
 				</div>
 				<img src="assets/sarmale.jpg" alt="Sarmale">
@@ -203,7 +203,7 @@
 					<li class="info__item">November 29, 2017</li>
 				</ul>
 				<div class="modify__container">
-					<button type="button" class="modify__button">Edit</button>
+					<button type="button" class="modify__button" id="edit_article">Edit</button>
 					<button type="button" class="modify__button">Delete</button>
 				</div>
 				<img src="assets/maramures.jpg" alt="Maramures">
@@ -236,7 +236,7 @@
 			<a class="footer__text">next</a>
 		</footer>
 	</div>
-	<div class="modal">
+	<div id="modal">
 		<div class="modal__content">
 			<h1 class="modal__text">Add/Edit Article</h1>
 			<div class="modal__input">
@@ -248,8 +248,8 @@
 				<input class="modal__form" id="i6" placeholder="Please enter content">
 			</div>
 			<div class="modal__buttons">
-				<button class="add__button exit__button">Cancel</button>
-				<button class="add__button exit__button" id="save">Save</button>
+				<button class="add__button" id="cancel">Cancel</button>
+				<button class="add__button" id="save">Save</button>
 			</div>
 		</div>
 	</div>
