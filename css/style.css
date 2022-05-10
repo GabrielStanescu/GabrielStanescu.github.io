@@ -184,7 +184,7 @@ p {
 .modal__content {
     height: 750px;
     width: 1000px;
-    margin: 15% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid var(--grey-color);
     box-shadow: 0 0 26px 6px;
