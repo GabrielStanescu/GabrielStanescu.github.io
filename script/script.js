@@ -109,7 +109,10 @@ function createArticleDOMNode(article) {
 	parent.appendChild(imgUrl);
 
 	// append content
-	parent.appendChild(content);
+	let contentContainer = document.createElement('div');
+	contentContainer.className = 'content__container';
+	contentContainer.appendChild(content);
+	parent.appendChild(contentContainer);
 
 	return parent;
 }
