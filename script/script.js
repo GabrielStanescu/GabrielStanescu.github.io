@@ -1,6 +1,9 @@
 // Declare main variable - get main element by id
 const main = document.getElementById('main');
 
+let save = document.getElementById('save');
+const body = document.getElementById('body');
+
 // Fetch the articles list
 function getArticlesFromServer() {
 	fetch('http://localhost:3000/articles')
@@ -133,8 +136,53 @@ function renderArticles(articles) {
 getArticlesFromServer();
 
 
+///////////////////////////// DAY 3 JS /////////////////////////////////
 
+// Add article
+function addArticleToServer() {
+	const articleObj = {
+		title: formTitle.value,
+        tag: formTag.value,
+        author: formAuthor.value,
+        date: formDate.value,
+        imgUrl: formImgUrl.value,
+        content: formContent.value
+	};
+}
 
+// Delete article from server
+function deleteArticleFromServer(id) {
+    // Solution here
+}
+
+// Update article
+function updateArticleToServer(id) {
+    // Solution here
+}
+
+// Copy edited article information to form and add event listener on Update button
+function openAddModal() {
+    clearSaveButtonEvents();
+	save.addEventListener('click', () => {
+		addArticleToServer();
+	});
+	
+}
+
+// Copy edited article information to form and add event listener on Update button
+function openEditModal(article) {
+    // Solution here
+}
+
+// Reset form values
+function resetForm() {
+    // Solution here
+}
+//  Remove Save Button to clear events
+function clearSaveButtonEvents() {
+    var newSave = save.cloneNode(true);
+	save.parentNode.replaceChild(newSave, save);
+}
 
 // MODAL //
 function showModal() {
