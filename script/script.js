@@ -49,7 +49,7 @@ function getArticlesFromServer() {
 
 // Remove articles list if exist
 function removeOldArticlesFromDOM () {
-    // Solution here
+    container.innerHTML = '';
 }
 
 function createArticleDOMNode(article) {
