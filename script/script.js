@@ -4,6 +4,13 @@ const main = document.getElementById('main');
 let save = document.getElementById('save');
 const body = document.getElementById('body');
 
+const i1 = document.getElementById('i1');
+const i2 = document.getElementById('i2');
+const i3 = document.getElementById('i3');
+const i4 = document.getElementById('i4');
+const i5 = document.getElementById('i5');
+const i6 = document.getElementById('i6');
+
 // Fetch the articles list
 function getArticlesFromServer() {
 	fetch('http://localhost:3000/articles')
@@ -141,13 +148,35 @@ getArticlesFromServer();
 // Add article
 function addArticleToServer() {
 	const articleObj = {
-		title: formTitle.value,
-        tag: formTag.value,
-        author: formAuthor.value,
-        date: formDate.value,
-        imgUrl: formImgUrl.value,
-        content: formContent.value
+		title: i1.value,
+        tag: i2.value,
+        author: i3.value,
+        date: i4.value,
+        imgUrl: i5.value,
+        content: i6.value
 	};
+
+	fetch('http://localhost:3000/articles', {
+		method: 'POST',
+		headers: {
+			"Content-type": "application/json"
+		},
+		body: JSON.stringify(articleObj)
+	})
+		.then(
+			function (response) {
+				if (response.status !== 201) {
+					console.log('Could not add the article. Status Code: ' + response.status);
+					return;
+				}
+				getArticlesFromServer();
+				resetForm();
+				hideModal();
+			}
+		)
+		.catch(function (err) {
+			console.log('Add Error', err);
+		});
 }
 
 // Delete article from server
@@ -166,7 +195,7 @@ function openAddModal() {
 	save.addEventListener('click', () => {
 		addArticleToServer();
 	});
-	
+	showModal();
 }
 
 // Copy edited article information to form and add event listener on Update button
@@ -176,12 +205,18 @@ function openEditModal(article) {
 
 // Reset form values
 function resetForm() {
-    // Solution here
+    i1.value = '';
+    i2.value = '';
+    i3.value = '';
+    i4.value = '';
+    i5.value = '';
+    i6.value = '';
 }
 //  Remove Save Button to clear events
 function clearSaveButtonEvents() {
     var newSave = save.cloneNode(true);
 	save.parentNode.replaceChild(newSave, save);
+	save = document.getElementById('save');
 }
 
 // MODAL //
@@ -201,9 +236,6 @@ for (let i = 0; i < editButtons.length; i++) {
 };
 
 const cancelButton = document.getElementById("cancel");
-const saveButton = document.getElementById("save");
 
-addButton.addEventListener("click", showModal);
-
+addButton.addEventListener("click", openAddModal);
 cancelButton.addEventListener("click", hideModal);
-saveButton.addEventListener("click", hideModal);
