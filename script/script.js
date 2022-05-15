@@ -25,7 +25,7 @@ saveButton.addEventListener("click", hideModal);
 
 
 // Declare main variable - get main element by id
-const container = document.getElementById('container');
+const main = document.getElementById('main');
 
 // Fetch the articles list
 function getArticlesFromServer() {
@@ -37,32 +37,33 @@ function getArticlesFromServer() {
 					return;
 				}
 
-				response.json().then(function(data) {
-					console.log(data);
+				response.json().then(function (data) {
+					renderArticles(data);
+					console.log("test");
 				});
 			}
 		)
-		.catch(function(err) {
+		.catch(function (err) {
 			console.log('Fetch Error', err);
 		});
 }
 
 // Remove articles list if exist
-function removeOldArticlesFromDOM () {
-    container.innerHTML = '';
+function removeOldArticlesFromDOM() {
+	main.innerHTML='';
 }
 
 function createArticleDOMNode(article) {
-    // Solution here
+	// Solution here
 }
 
 // Create DOM objects and append them to DOM
 function renderArticles(articles) {
-    
-    removeOldArticlesFromDOM();
 
-    // Create and append articles given as parameter
+	removeOldArticlesFromDOM();
 
+	// Create and append articles given as parameter
+	console.log(articles);
 }
 
 // Get all articles
