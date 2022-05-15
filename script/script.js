@@ -111,6 +111,9 @@ function createArticleDOMNode(article) {
 	deleteB.type = 'button';
 	deleteB.className = 'modify__button';
 	deleteB.innerHTML = 'Delete';
+	deleteB.addEventListener('click', () => {
+		deleteArticleFromServer(article.id);
+	});
 	buttonContainer.appendChild(deleteB);
 
 	parent.appendChild(buttonContainer);
@@ -181,7 +184,21 @@ function addArticleToServer() {
 
 // Delete article from server
 function deleteArticleFromServer(id) {
-    // Solution here
+    fetch('http://localhost:3000/articles/' + id, {
+		method: 'DELETE',
+	})
+		.then(
+			function (response) {
+				if (response.status !== 200) {
+					console.log('Could not delete the article. Status Code: ' + response.status);
+					return;
+				}
+				getArticlesFromServer();
+			}
+		)
+		.catch(function (err) {
+			console.log('Add Error', err);
+		});
 }
 
 // Update article
@@ -212,6 +229,7 @@ function resetForm() {
     i5.value = '';
     i6.value = '';
 }
+
 //  Remove Save Button to clear events
 function clearSaveButtonEvents() {
     var newSave = save.cloneNode(true);
