@@ -1,29 +1,3 @@
-function showModal() {
-	document.getElementById("modal").style.display = "block";
-}
-
-function hideModal() {
-	document.getElementById("modal").style.display = "none";
-}
-
-const addButton = document.getElementById("add_article");
-const editButtons = document.getElementsByClassName("edit_article");
-
-for (let i = 0; i < editButtons.length; i++) {
-	editButtons[i].addEventListener("click", showModal);
-};
-
-const cancelButton = document.getElementById("cancel");
-const saveButton = document.getElementById("save");
-
-addButton.addEventListener("click", showModal);
-
-cancelButton.addEventListener("click", hideModal);
-saveButton.addEventListener("click", hideModal);
-
-
-
-
 // Declare main variable - get main element by id
 const main = document.getElementById('main');
 
@@ -92,9 +66,13 @@ function createArticleDOMNode(article) {
 	let ul = document.createElement('ul');
 	ul.className = 'info__container';
 
-	let bullet = document.createElement('li');
-	bullet.className = 'info__item';
-	bullet.innerHTML = '•';
+	let bullet1 = document.createElement('li');
+	bullet1.className = 'info__item';
+	bullet1.innerHTML = '•';
+
+	let bullet2 = document.createElement('li');
+	bullet2.className = 'info__item';
+	bullet2.innerHTML = '•';
 
 	let addedBy = document.createElement('li');
 	addedBy.className = 'info__item';
@@ -102,9 +80,9 @@ function createArticleDOMNode(article) {
 	addedBy.appendChild(author);
 
 	ul.appendChild(tag);
-	ul.appendChild(bullet);
+	ul.appendChild(bullet1);
 	ul.appendChild(addedBy);
-	ul.appendChild(bullet);
+	ul.appendChild(bullet2);
 	ul.appendChild(date);
 
 	parent.appendChild(ul);
@@ -150,3 +128,31 @@ function renderArticles(articles) {
 
 // Get all articles
 getArticlesFromServer();
+
+
+
+
+
+// MODAL //
+function showModal() {
+	document.getElementById("modal").style.display = "block";
+}
+
+function hideModal() {
+	document.getElementById("modal").style.display = "none";
+}
+
+const addButton = document.getElementById("add_article");
+const editButtons = document.getElementsByClassName("edit_article");
+
+for (let i = 0; i < editButtons.length; i++) {
+	editButtons[i].addEventListener("click", showModal);
+};
+
+const cancelButton = document.getElementById("cancel");
+const saveButton = document.getElementById("save");
+
+addButton.addEventListener("click", showModal);
+
+cancelButton.addEventListener("click", hideModal);
+saveButton.addEventListener("click", hideModal);
