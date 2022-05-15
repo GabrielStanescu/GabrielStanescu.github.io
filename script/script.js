@@ -23,7 +23,6 @@ function getArticlesFromServer() {
 
 				response.json().then(function (data) {
 					renderArticles(data);
-					console.log("test");
 				});
 			}
 		)
@@ -105,6 +104,9 @@ function createArticleDOMNode(article) {
 	editB.type = 'button';
 	editB.classList.add('modify__button', 'edit_article');
 	editB.innerHTML = 'Edit';
+	editB.addEventListener('click', () => {
+		openEditModal(article);
+	});
 	buttonContainer.appendChild(editB);
 
 	let deleteB = document.createElement('button');
@@ -203,7 +205,36 @@ function deleteArticleFromServer(id) {
 
 // Update article
 function updateArticleToServer(id) {
-    // Solution here
+	const articleObj = {
+		title: i1.value,
+        tag: i2.value,
+        author: i3.value,
+        date: i4.value,
+        imgUrl: i5.value,
+        content: i6.value
+	};
+
+	fetch('http://localhost:3000/articles/' + id, {
+		method: 'PUT',
+		headers: {
+			"Content-type": "application/json"
+		},
+		body: JSON.stringify(articleObj)
+	})
+		.then(
+			function (response) {
+				if (response.status !== 200) {
+					console.log('Could not edit the article. Status Code: ' + response.status);
+					return;
+				}
+				getArticlesFromServer();
+				resetForm();
+				hideModal();
+			}
+		)
+		.catch(function (err) {
+			console.log('Add Error', err);
+		});
 }
 
 // Copy edited article information to form and add event listener on Update button
@@ -217,7 +248,18 @@ function openAddModal() {
 
 // Copy edited article information to form and add event listener on Update button
 function openEditModal(article) {
-    // Solution here
+	i1.value = article.title;
+    i2.value = article.tag;
+    i3.value = article.author;
+    i4.value = article.date;
+    i5.value = article.imgUrl;
+    i6.value = article.content;
+
+	clearSaveButtonEvents();
+	save.addEventListener('click', () => {
+		updateArticleToServer(article.id);
+	});
+	showModal();
 }
 
 // Reset form values
@@ -243,6 +285,7 @@ function showModal() {
 }
 
 function hideModal() {
+	resetForm();
 	document.getElementById("modal").style.display = "none";
 }
 
