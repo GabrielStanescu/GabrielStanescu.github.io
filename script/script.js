@@ -290,11 +290,6 @@ function hideModal() {
 }
 
 const addButton = document.getElementById("add_article");
-const editButtons = document.getElementsByClassName("edit_article");
-
-for (let i = 0; i < editButtons.length; i++) {
-	editButtons[i].addEventListener("click", showModal);
-};
 
 const cancelButton = document.getElementById("cancel");
 
